@@ -4,3 +4,4 @@ code_repo: ../ridge-agent
 site_slug: ridge-demo
 conventions:
   sessions: docs/sessions/
+  decisions: docs/decisions/
