@@ -1,0 +1,6 @@
+id: ridge-agent-demo
+name: RIDGE Demo Archive
+code_repo: ../ridge-agent
+site_slug: ridge-demo
+conventions:
+  sessions: docs/sessions/
