@@ -9,6 +9,12 @@ RIDGE's actual notes (`ridge-agent-notes`) stay private, because they
 hold in-progress strategic thinking. Nothing in this repo is real —
 every file here is sample data, written only to be read by RIDGE.
 
+RIDGE itself is also a learning project — building an agent from
+scratch, instead of using a framework or a no-code tool, is how I'm
+teaching myself to do it. See the
+[ridge-agent README](https://github.com/MarkMonterosso/ridge-agent)
+for more on that.
+
 ## What's in here
 
 This folder is a "project archive" in RIDGE's terms: a `ridge.yml`
@@ -44,26 +50,28 @@ fixed.
 4. Run `py main.py`.
 
 Actual output from this exact archive, using RIDGE's real, unmodified
-`main.py` (captured 2026-09-21):
+`main.py` (captured 2026-10-14, once `ridge-agent-demo`'s `ridge.yml`
+had `git_repo` pointed at `ridge-agent` itself):
 
 ```
 Discovering records for convention: ('sessions', 'docs/sessions/')
-!!! SKIPPING ../ridge-agent-demo/docs/sessions/2026-09-21-demo-003-malformed-yaml.md — malformed YAML frontmatter: mapping values are not allowed here
-  in "<unicode string>", line 4, column 18:
-      bad indentation: [this is not valid yaml
-                     ^
-Validation error in ../ridge-agent-demo/docs/sessions/2026-09-21-demo-002-missing-date.md: Record is missing 'date' in metadata.
+Validation error in ..\ridge-agent-demo\docs\sessions\2026-09-21-demo-002-missing-date.md: Record is missing 'date' in metadata.
+!!! SKIPPING ..\ridge-agent-demo\docs\sessions\2026-09-21-demo-003-malformed-yaml.md — malformed YAML frontmatter: mapping values are not allowed in this context
+  in "<unicode string>", line 4, column 18
+Discovering records for convention: ('decisions', 'docs/decisions/')
+Found 1 commit(s) in the last 7 days, 0:00:00.
 Discovered 2 valid records in project at ../ridge-agent-demo.
 No duplicate ids found.
 ```
 
 ## Where this fits
 
-RIDGE is built one milestone at a time. Right now (M1) it can find a
-project's records, sort them by convention, and validate them; it
-can't yet read git history (M2), assemble weekly facts (M3), write
-the summary prose (M4), or publish the result (M6). As each new
-milestone ships, this repo gets a new sample showing the new
+RIDGE is built one milestone at a time. Right now (M1, M2) it can
+find a project's records, sort them by convention, and validate
+them, and it reads a project's git history for commit activity in a
+configured lookback window; it can't yet assemble weekly facts (M3),
+write the summary prose (M4), or publish the result (M6). As each
+new milestone ships, this repo gets a new sample showing the new
 behavior, so it stays an honest, up-to-date demonstration of what
 RIDGE actually does, not what it will eventually do.
 
