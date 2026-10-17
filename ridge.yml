@@ -13,8 +13,9 @@ git_repo: ../ridge-agent           # optional, for git metadata. If set, RIDGE e
                                     # to work — a bad or missing path fails loudly rather
                                     # than being silently skipped.
 site_slug: ridge-demo              # which site page this project writes to
-conventions:                       # optional — maps record types to folders. A folder
+conventions:                       # optional. Maps each record type to its folder. A folder
                                     # that doesn't exist yet is fine (no records of that
                                     # type written so far); a convention left blank is not.
-  sessions: docs/sessions/         # sample session logs for the demo
-  decisions: docs/decisions/       # sample decision records for the demo
+  session: docs/sessions/         # sample session logs for the demo
+  decision: docs/decisions/       # sample decision records for the demo
+  milestone: docs/milestones/     # sample milestone record for the demo

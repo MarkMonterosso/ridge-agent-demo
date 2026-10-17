@@ -18,8 +18,11 @@ for more on that.
 ## What's in here
 
 This folder is a "project archive" in RIDGE's terms: a `ridge.yml`
-marker file, plus sample markdown records under two of RIDGE's
-tracked conventions, `docs/sessions/` and `docs/decisions/`.
+marker file, plus sample markdown records in the folders it lists:
+`docs/sessions/`, `docs/decisions/` and `docs/milestones/`.
+
+RIDGE's own tests read this repo too, so each file below is here
+for a reason. Change one and a test will probably notice.
 
 | File | What it demonstrates |
 | --- | --- |
@@ -27,26 +30,23 @@ tracked conventions, `docs/sessions/` and `docs/decisions/`.
 | `docs/sessions/2026-09-21-demo-002-missing-date.md` | Has an `id` but no `date`. RIDGE skips it and logs why, instead of failing the run. |
 | `docs/sessions/2026-09-21-demo-003-malformed-yaml.md` | Frontmatter that isn't valid YAML at all. RIDGE skips it and logs the parse error. |
 | `docs/decisions/0001-sample-decision.md` | A decision record, RIDGE's third convention. Its `session` field links it back to the sample session above, the same way a real decision here traces back to the working session that made the call. Counted as valid. |
+| `docs/decisions/2026-09-21-demo-004-session-in-decisions-folder.md` | Says `type: session` but sits in the decisions folder. When a file says what it is, RIDGE should go by the file. |
+| `docs/sessions/2026-09-21-demo-005-no-type-line.md` | A valid session with no `type` line. It sits in the sessions folder, so RIDGE should treat it as a session. |
+| `docs/milestones/P1-M1-sample-milestone.md` | A milestone record. Like RIDGE's real ones, it has no `date`. It uses `completed` instead, and RIDGE should read it anyway. |
 
-A `docs/milestones/` example isn't here yet. RIDGE's real milestone
-records don't carry a `date` field (they use `completed` instead,
-per the archive's own settled decision), and RIDGE's current
-validator requires `date` on every record regardless of type. That
-means every real milestone record in RIDGE's own private archive is
-being skipped right now, not just a demo gap. Tracked as a known
-issue upstream; this repo gets its milestone example once that's
-fixed.
+Known issue: RIDGE currently skips the milestone file. Its checker
+wants a `date` on every record, and milestone records don't have
+one. This is being fixed in RIDGE's milestone M3. Until then, the
+milestone file shows up in the output as a validation error.
 
 ## Running it yourself
 
 1. Clone [`ridge-agent`](https://github.com/MarkMonterosso/ridge-agent)
    and install its dependencies (see that repo's README).
 2. Clone this repo as a sibling folder to `ridge-agent`.
-3. In `ridge-agent`, point `config.yml` at this folder:
-   ```yaml
-   projects:
-     - ../ridge-agent-demo
-   ```
+3. In `ridge-agent`, copy `config.example.yml` to `config.yml`. The
+   example already points at this folder, so you don't need to
+   change anything.
 4. Run `py main.py`.
 
 Actual output from this exact archive, using RIDGE's real, unmodified

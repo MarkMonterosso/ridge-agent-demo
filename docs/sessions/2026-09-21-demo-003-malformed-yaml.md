@@ -1,5 +1,5 @@
 ---
-id: demo-2026-09-21-003
+id: test-2026-09-21-003
 date: 2026-09-21
   bad indentation: [this is not valid yaml
 ---

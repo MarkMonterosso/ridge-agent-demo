@@ -1,5 +1,5 @@
 ---
-id: demo-2026-09-21-002
+id: test-2026-09-21-002
 title: "Sample session note with no date (demo data)"
 ---
 
